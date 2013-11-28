@@ -2,17 +2,19 @@
 
 Esther Rogers Portfolio
 Environment and Config
+Ruby 2.0.0, Rails 4.0.1
 
-* Ruby 2.0.0
+Dependencies
+- Postgresql 
+- CarrierWave
+- jQuery fileupload
 
-* postgresql, carrierwave, jQuery fileupload
+Create the database
+- rake db:scheme:load
+- rake db:create
 
-* Configuration
+Run the tests
+- rspec spec
 
-* rake db:structure:load
-
-* rake db:create
-
-* rspec spec
-
-* cap deploy
+Deploy
+- cap deploy
