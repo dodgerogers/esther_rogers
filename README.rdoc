@@ -1,0 +1,18 @@
+== README
+
+Esther Rogers Portfolio
+Environment and Config
+
+* Ruby 2.0.0
+
+* postgresql, carrierwave, jQuery fileupload
+
+* Configuration
+
+* rake db:structure:load
+
+* rake db:create
+
+* rspec spec
+
+* cap deploy
