@@ -1,16 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="center">
+	<h2><%= @post.title %></h2>
 
-<p>
-  <%= @post.title %>
-</p>
+	<p><%= @post.keywords %></p>
 
-<p>
-  <%= @post.keywords %>
-</p>
+	<p><%= @post.body %></p><hr>
 
-<p>
-  <%= @post.body %>
-</p>
+	<% @post.attachments.each do |image| %>
+		<%= image_tag image.file %><hr>
+	<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+	<% if current_user %>
+		<%= link_to 'Edit', edit_post_path(@post) %> |
+		<%= link_to 'Dashboard', posts_path %>
+	<% end %>
+</div>	

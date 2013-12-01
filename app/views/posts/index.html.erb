@@ -1,31 +1,24 @@
-<h1>Listing posts</h1>
+<h2>Control Panel</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Keywords</th>
-      <th>Body</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to raw("Create New Post <i class='icon-plus-sign'></i>"), new_post_path, class: "btn btn-success" %><br><br>
+
+<table class="table">
+  
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
+		<td><%= image_tag post.featured_image_url(:mini) if post.featured_image %></td>
+        <td><%= link_to post.title, post %></td>
         <td><%= post.keywords %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= truncate(post.body, length: 150) %><br>
+		<em>Created <%= time_ago_in_words(post.created_at) %></em></td>
+        <td><%= link_to 'View', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to raw("<i class='icon-remove-sign'></i>"), post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>

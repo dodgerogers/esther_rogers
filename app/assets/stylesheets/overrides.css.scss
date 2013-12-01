@@ -1,10 +1,32 @@
 // fonts //
-@font-face {
-	font-family: 'Glyphicons Halflings';
-	src: url('/assets/glyphicons-halflings-regular.eot');
-	src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}
 
 .container {
 	max-width:940px;
+}
+
+select, input[type="text"], input[type="password"], 
+input[type="datetime"], input[type="datetime-local"], input[type="date"], 
+input[type="month"], input[type="time"], input[type="week"], 
+input[type="number"], input[type="email"], input[type="url"], 
+input[type="search"], input[type="tel"], input[type="color"], 
+.uneditable-input, textarea {
+	width:100%;
+	min-height:30px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	padding:3px;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+}
+input[type="file"] {
+	line-height:10px;
+}
+
+.center {
+	text-align:center;
 }

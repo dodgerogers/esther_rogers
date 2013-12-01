@@ -1,0 +1,9 @@
+<footer class="footer">
+	<section class="navigation">
+		<%= link_to raw("<i class='icon-twitter-sign'></i>"), "#" %>
+		<%= link_to raw("<i class='icon-pinterest-sign'></i>"), "#" %>
+		<%= link_to raw("<i class='icon-instagram'></i>"), "#" %>
+		<%= link_to "Home", root_path %>
+		<%= link_to "Dashboard", posts_path if current_user %>
+	</section>
+</footer>

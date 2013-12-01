@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post, html: { mulitpart: true } do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,23 +10,34 @@
       </ul>
     </div>
   <% end %>
+	
+	<%= f.fields_for :attachments do |builder| %>
+		<%= render partial: "attachments/fields_for", locals: { f: builder } %>
+	<% end %>
+	<%= link_to_add_fields(raw("Add image <i class='icon-plus-sign'></i>"), f, :attachments) %><hr>
+	
+  <fieldset class="field">
+    <%= f.label :featured_image %>
+	<%= image_tag @post.featured_image_url(:mini) if @post.featured_image %><br><br>
+    <%= f.file_field :featured_image %>
+  </fieldset><br>
 
- <div class="field">
-    <%= f.label :keywords, "Keywords: accepts a comma separated list" %><br>
-    <%= f.text_field :keywords %>
-  </div><br>
+ <fieldset class="field">
+    <%= f.label :keywords %>
+    <%= f.text_field :keywords, placeholder: "Comma separated list" %>
+  </fieldset><br>
 
-  <div class="field">
-    <%= f.label :title %><br>
+  <fieldset class="field">
+    <%= f.label :title %>
     <%= f.text_field :title %>
-  </div><br>
+  </fieldset><br>
 
-  <div class="field">
-    <%= f.label :body %><br>
+  <fieldset class="field">
+    <%= f.label :body %>
     <%= f.text_area :body, size: "100x10" %>
-  </div><br>
+  </fieldset><br>
 
-  <div class="actions">
-    <%= f.submit "Save", class: "btn btn-default" %>
-  </div>
+  <fieldset class="actions">
+    <%= f.submit "Save", class: "btn btn-success" %>
+  </fieldset>
 <% end %>

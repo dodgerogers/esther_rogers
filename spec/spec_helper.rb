@@ -23,6 +23,9 @@ RSpec.configure do |config|
   # factory girl helpers
   config.include FactoryGirl::Syntax::Methods
   
+  #include http digest authentication
+  config.include AuthenticateHelper, type: :controller
+  
   # cause tests to fail with deprecated methods
   config.raise_errors_for_deprecations!
   
@@ -31,6 +34,10 @@ RSpec.configure do |config|
     configuration.syntax = [:expect, :should]
   end
   
+  config.after(:all) do
+    FileUtils.rm_rf Dir.glob("#{Rails.root}/public/test/uploads/*")
+  end
+    
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -58,7 +65,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  #config.order = "random"
   
   #db cleaner 
   config.before(:suite) do

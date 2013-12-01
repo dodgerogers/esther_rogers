@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe PostsController do
   before(:each) do
+    @controller.stub(:authenticate).and_return(true)
     @post = create(:post)
   end
   

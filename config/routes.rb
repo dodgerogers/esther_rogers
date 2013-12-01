@@ -1,7 +1,11 @@
 EstherRaday::Application.routes.draw do
   resources :posts
 
-  root "posts#index"
+  root "pages#home"
+  
+  get "/about", to: 'pages#about', as: :about
+  get "/contact", to: 'pages#contact', as: :contact
+  match "/dashboard", to: 'posts#index', as: :dashboard, via: :get
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,6 @@
+<fieldset class="field">
+	<%= image_tag f.object.file_url(:mini) if f.object %><br>
+	<%= f.file_field :file, class: "destroy-link"%>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to raw("Remove <i class='icon-remove-sign'></i>"), "#", class: "remove_fields btn btn-danger" %>
+</fieldset><br>

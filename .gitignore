@@ -7,8 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore idea files
-/.idea
+# ignore uploads 
+/public/test/*
+/public/uploads/*
 
 # Ignore the application and database yml files
 /config/database.yml
@@ -21,3 +22,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore idea files
+/.idea

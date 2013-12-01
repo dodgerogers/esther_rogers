@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate, only: [:new, :create, :edit, :update, :index, :dashboard, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  include Postable
 
   def index
-    @posts = Post.all
   end
 
   def show
@@ -17,7 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -57,6 +57,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :keywords, :body)
+      params.require(:post).permit(:title, :keywords, :body, :featured_image, 
+                                    attachments_attributes: [:file, :id, :_destroy])
     end
 end
