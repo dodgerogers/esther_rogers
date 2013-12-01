@@ -1,10 +1,11 @@
+<%= meta_title "Dashboard" %>
+
 <h2>Control Panel</h2>
 
 <%= link_to raw("Create New Post <i class='icon-plus-sign'></i>"), new_post_path, class: "btn btn-success" %><br><br>
 
 <table class="table">
   
-
   <tbody>
     <% @posts.each do |post| %>
       <tr>
