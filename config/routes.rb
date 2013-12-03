@@ -1,11 +1,17 @@
 EstherRaday::Application.routes.draw do
   resources :posts
-
+  resources :sessions, only: [:new, :create, :destroy]
+  match "/dashboard-login", to: 'sessions#new', as: :dashboard_login, via: :get
+  match "/logout", to: 'sessions#destroy', as: :logout, via: :all
+  
   root "pages#home"
   
   get "/about", to: 'pages#about', as: :about
   get "/contact", to: 'pages#contact', as: :contact
   match "/dashboard", to: 'posts#index', as: :dashboard, via: :get
+  
+  get '/category/:tag', to: 'pages#home', as: :category
+  match '(errors)/:status', to: 'errors#show', constraints: { status: /\d{3}/ }, via: :all
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

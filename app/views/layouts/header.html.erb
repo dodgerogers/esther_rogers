@@ -1,10 +1,10 @@
 <header class="container">
 	<h1 class="logo"><%= link_to "Esther Rogers", root_path %></h1>
 	<nav class="navigation">
-		<%= link_to "Home", root_path %>
-		<%= link_to "About", about_path %>
-		<%= link_to "Blog", "#" %>
-		<%= link_to "Contact", contact_path %>
-		<%= link_to "Page", "#" %>
+		<%= link_to "Home", root_path, class: current(root_path) %>
+		<%= display_tags(Tag.all) %>
+		<%= link_to "About", about_path, class: current(about_path) %>
+		<%= link_to "Blog", "http://thebagthief.net", target: "_blank" %>
+		<%= link_to "Contact", contact_path, class: current(contact_path) %>
 	</nav>
 </header>

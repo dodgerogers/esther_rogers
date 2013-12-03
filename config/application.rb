@@ -19,7 +19,12 @@ module EstherRaday
     
     # Load the rake tasks
     config.eager_load_paths += %W(#{config.root}/lib)
-
+    
+    # use our own error pages
+    config.exceptions_app = self.routes
+    
+    config.action_dispatch.rescue_responses.merge!('ApplicationController::UnauthorizedException' => :unauthorized)
+    
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     if Rails.env.test? 
       "test/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     else
-      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      @dir = "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
   end
   
@@ -30,6 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   before :store, :remember_cache_id
   after :store, :delete_tmp_dir
+  after :remove, :remove_id_dir
 
   # store! nil's the cache_id after it finishes so we need to remember it for deletion
   def remember_cache_id(new_file)
@@ -41,6 +42,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     if @cache_id_was.present? && @cache_id_was =~ /\A[\d]{8}\-[\d]{4}\-[\d]+\-[\d]{4}\z/
       FileUtils.rm_rf(File.join(root, cache_dir, @cache_id_was))
     end
+  end
+  
+  def remove_id_dir
+    FileUtils.rm_rf(File.join(root, store_dir))
   end
   
   protected

@@ -8,6 +8,10 @@ module ApplicationHelper
     link_to name, "#", class: "add_fields btn btn-primary", data: {id: id, fields: fields.gsub!("\n", "")}
   end
   
+  def current(path)
+    current_page?(path) ? "current" : ""
+  end
+  
   def meta_title(title=nil)
     if title.present?
       content_for :title, title

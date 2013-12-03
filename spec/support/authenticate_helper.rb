@@ -7,7 +7,7 @@ module AuthenticateHelper
     ActionController::Base.class_eval { include ActionController::Testing }
     
     self.instance_eval do
-      def process_with_new_base_test(request, response)
+      def credentials(request, response)
          @credentials = {
            :uri => request.url,
            :realm => "#{realm}",
@@ -15,7 +15,7 @@ module AuthenticateHelper
            :nonce => ActionController::HttpAuthentication::Digest.nonce(request.env['action_dispatch.secret_token']),
            :opaque => ActionController::HttpAuthentication::Digest.opaque(request.env['action_dispatch.secret_token'])
          } 
-        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Digest.encode_credentials(request.request_method, @credentials, "#{password}", false)
+        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Digest.encode_credentials(request.request_method, @credentials, password, true)
       end
     end
   end

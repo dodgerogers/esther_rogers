@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   private
   
   def authenticate
+    session[:admin] = nil
     authenticate_or_request_with_http_digest(CONFIG[:realm]) do |username|
       session[:admin] = username
       USERS[username]

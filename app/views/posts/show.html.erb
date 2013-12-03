@@ -4,7 +4,11 @@
 <div class="center">
 	<h2><%= @post.title %></h2>
 
-	<p><%= @post.body %></p><hr>
+	<p><%= @post.body %></p>
+	
+	<p>Tags - <tag><%= display_tags(@post.tags) %></tag></p>
+	<small>Published <%= time_ago_in_words(@post.created_at) %> ago</small>
+	<hr>
 
 	<% @post.attachments.each do |image| %>
 		<%= image_tag image.file %><hr>

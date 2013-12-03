@@ -1,0 +1,10 @@
+<%= meta_title "404 This is not the page you were looking for" %>	
+		
+<center>
+	<h2>404 This is not the page you were looking for</h2>
+	<% if @exception %>
+	  <p><%= @exception.message %></p>
+	<% end %>
+	  <p>The page you were looking for doesn't exist</p>
+	<%= link_to "Home", root_path %>
+</center>	

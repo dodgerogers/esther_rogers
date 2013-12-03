@@ -1,0 +1,10 @@
+<%= meta_title "422 The change you requested was rejected" %>	
+		
+<center>
+	<h2>422 The change you requested was rejected</h2>
+	<% if @exception %>
+	  <p><%= @exception.message %></p>
+	<% end %>
+	  <p>Maybe you tried to change something you didn't have access to.</p>
+	<%= link_to "Home", root_path %>
+</center>

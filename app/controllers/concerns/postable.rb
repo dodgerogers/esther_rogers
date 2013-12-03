@@ -6,6 +6,6 @@ module Postable
   end
   
   def find_latest_posts
-    @posts = Post.order("created_at desc")
+    @posts = Post.order(created_at: :desc).includes(:tags).paginate(page: params[:page], per_page: 4)
   end
 end

@@ -3,6 +3,16 @@
 .container {
 	max-width:940px;
 }
+.btn {
+	color: #fff!important;
+	text-shadow: 0px 0px 0px #fff!important;
+	border: none!important;
+	background-image: none!important;
+	border-color: #888!important;
+	box-shadow: 0px 0px 0px #fff;
+	-webkit-box-shadow: 0px 0px 0px #fff;
+	-moz-box-shadow: 0px 0px 0px #fff;
+}
 
 select, input[type="text"], input[type="password"], 
 input[type="datetime"], input[type="datetime-local"], input[type="date"], 
@@ -26,7 +36,6 @@ input[type="search"], input[type="tel"], input[type="color"],
 input[type="file"] {
 	line-height:10px;
 }
-
 .center {
 	text-align:center;
 }

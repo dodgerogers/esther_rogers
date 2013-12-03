@@ -9,9 +9,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
-
-group :development do
-  
+group :development do  
 end
 
 group :test do
@@ -29,6 +27,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "font-awesome-rails"
 gem "twitter-bootstrap-rails"
+gem "will_paginate"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

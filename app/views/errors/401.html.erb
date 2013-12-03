@@ -1,0 +1,9 @@
+<%= meta_title "Unauthorized to access this page" %>	
+		
+<center>
+	<h2>You are unauthorized to access this page</h2>
+	<% if @exception %>
+	  <p><%= @exception.message %></p>
+	<% end %>
+	<%= link_to "Home", root_path %>
+</center>

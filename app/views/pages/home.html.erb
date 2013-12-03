@@ -1,12 +1,14 @@
-<div class='center'>
-	<div class="portfolio-wrapper">
-		<% @posts.each do |post| %>
-			<article class="portfolio">
-				<div class="featured_image">	
-					<%= link_to image_tag(post.featured_image_url(:featured)), post %>
-				</div>
-				<p><%= link_to post.title, post %></p>
-			</article>
-		<% end %>	
-	</div>	
-</div>
+<ul class="grid cs-style-3">
+	<% @posts.each do |post| %>
+		<li>
+			<figure>	
+				<%= link_to image_tag(post.featured_image_url(:featured)), post %>
+				<figcaption>	
+					<h3><%= link_to post.title, post %></h3>
+				</figcaption>
+			</figure>
+		</li>	
+	<% end %>	
+</ul>
+
+<%= will_paginate @posts %>
