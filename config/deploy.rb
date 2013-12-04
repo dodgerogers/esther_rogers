@@ -39,7 +39,7 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
-    sudo "mkdir -p #{release_path}/public/uploads/"
+    #sudo "mkdir -p #{release_path}/public/uploads/"
     sudo "chmod -R 777 #{release_path}/public/uploads"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
