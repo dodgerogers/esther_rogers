@@ -8,11 +8,11 @@ class Post < ActiveRecord::Base
   mount_uploader :featured_image, ImageUploader
   validates_presence_of :title, :body
   
-  #validate :tag_limit
+  validate :tag_limit
   
-  #def tag_limit
-  #  errors.add(:base, "You need to specify at least one tag") if self.tags.size < 1 
-  #end
+  def tag_limit
+    errors.add(:base, "You need to specify at least one tag") if self.tags.size < 1 
+  end
   
   def to_param
     "#{self.id} - #{self.title}".parameterize
