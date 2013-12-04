@@ -32,6 +32,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     sudo "mkdir -p #{shared_path}/config"
+    sudo "mkdir -p #{shared_path}/uploads"
     puts "Now edit the config files in #{shared_path}"
   end
   after "deploy:setup", "deploy:setup_config"
@@ -39,9 +40,9 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
     #sudo "mkdir -p #{release_path}/public/uploads/"
     #sudo "chmod -R 777 #{release_path}/public/uploads"
-    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
   
