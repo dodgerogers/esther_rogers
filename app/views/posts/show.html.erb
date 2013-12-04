@@ -6,7 +6,7 @@
 
 	<p><%= @post.body %></p>
 	
-	<p>Tags - <tag><%= display_tags(@post.tags) %></tag></p>
+	<p>Tags - <tag><%= display_tags(@post.tags) if @post.tags %></tag></p>
 	<small>Published <%= time_ago_in_words(@post.created_at) %> ago</small>
 	<hr>
 
