@@ -2,7 +2,7 @@
 
 Esther Rogers Portfolio
 Environment and Config
-Ruby 2.0.0, Rails 4.0.1
+Ruby 1.9.3-p448, Rails 4.0.1
 
 Dependencies
 - Postgresql 
