@@ -5,7 +5,7 @@ server "162.243.72.49", :web, :app, :db, primary: true
 set :application, "esther_rogers"
 set :user, "esther"
 set :deploy_to, "home/#{user}/rails/#{application}"
-#set :deploy_via, :remote_cache
+set :deploy_via, :remote_cache
 set :use_sudo, true
 set :rails_env, "production"
 
