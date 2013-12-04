@@ -1,9 +1,5 @@
 EstherRaday::Application.routes.draw do
-  resources :posts
-  resources :sessions, only: [:new, :create, :destroy]
-  match "/dashboard-login", to: 'sessions#new', as: :dashboard_login, via: :get
-  match "/logout", to: 'sessions#destroy', as: :logout, via: :all
-  
+  resources :posts  
   root "pages#home"
   
   get "/about", to: 'pages#about', as: :about

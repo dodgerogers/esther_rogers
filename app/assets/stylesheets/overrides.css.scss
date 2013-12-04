@@ -39,3 +39,10 @@ input[type="file"] {
 .center {
 	text-align:center;
 }
+form {
+	small {
+		margin-bottom:10px;
+		display:block;
+		margin-top:-5px;
+	}
+}

@@ -12,6 +12,8 @@
   <% end %>
 	
 	<div id="attachments">
+		<%= f.label :attachments %>
+		<small>Optimal image width - 800 pixels</small>
 		<%= f.fields_for :attachments do |builder| %>
 			<%= render partial: "attachments/fields_for", locals: { f: builder } %>
 		<% end %>
@@ -20,6 +22,7 @@
 	
   <fieldset class="field">
     <%= f.label :featured_image %>
+	<small>Optimal dimensions 200 X 267 pixels</small>
 	<%= image_tag @post.featured_image_url(:mini) if @post.featured_image %><br>
     <%= f.file_field :featured_image %>
   </fieldset><br>

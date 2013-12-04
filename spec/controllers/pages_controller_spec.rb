@@ -1,12 +1,23 @@
 require "spec_helper"
 
 describe PagesController do
+  before(:each) do
+    @post = create(:post)
+  end
+  
   subject { PagesController }
   
   describe "GET home" do    
     it "renders home template" do
       get :home
       response.should render_template :home
+    end
+    
+    describe "params[:tag]" do
+      it "returns array of tagged posts" do
+        get :home, tag: "Fashion"
+        controller.params[:tag].should eq "Fashion"
+      end
     end
   end
   
