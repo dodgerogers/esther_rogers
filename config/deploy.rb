@@ -6,7 +6,7 @@ set :application, "esther_rogers"
 set :user, "esther"
 set :deploy_to, "home/#{user}/rails/#{application}"
 set :deploy_via, :remote_cache
-use :use_sudo, true
+set :use_sudo, true
 set :rails_env, "production"
 
 set :scm, :git
