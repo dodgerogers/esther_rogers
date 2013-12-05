@@ -23,7 +23,7 @@
   <fieldset class="field">
     <%= f.label :featured_image %>
 	<small>Optimal dimensions 200 X 267 pixels</small>
-	<%= image_tag @post.featured_image_url(:mini) if @post.featured_image %><br>
+	<%= image_tag @post.featured_image_url(:mini) if @post.featured_image %>
     <%= f.file_field :featured_image %>
   </fieldset><br>
 
