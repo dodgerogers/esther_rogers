@@ -27,6 +27,11 @@
     <%= f.file_field :featured_image %>
   </fieldset><br>
 
+  <fieldset class="field" id="created_at">
+    <%= f.label :created_at %>
+    <%= f.date_field :created_at %>
+  </fieldset><br>
+
   <fieldset class="field">
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, placeholder: Tag.all(&:name).map { |t| t.name }.join(", ") %>

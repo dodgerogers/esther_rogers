@@ -10,6 +10,8 @@ describe Post do
   it { should respond_to(:title) }
   it { should respond_to(:keywords) }
   it { should respond_to(:body) }
+  it { should respond_to(:featured_image) }
+  it { should respond_to(:created_at) }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
   
