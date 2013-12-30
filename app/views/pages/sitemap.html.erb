@@ -1,0 +1,18 @@
+<% meta_title("Sitemap") %>
+
+<b>Pages</b><br>
+	<%= link_to "Home", root_path %><br>
+	<%= link_to "About", about_path %><br>
+	<%= link_to "Contact", contact_path %><br>
+	<br>
+
+<b>Portfolio</b><br>	
+	<% @posts.each do |q| %>		
+		<%= link_to q.title.titleize, q %><br>
+	<% end %>
+	<br>
+	
+<b>Tags</b><br>
+	<% @tags.each do |t| %>
+		<%= link_to t.name.titleize, category_path(t.name) %><br>
+	<% end %>	

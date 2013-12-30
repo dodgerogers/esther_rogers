@@ -4,6 +4,7 @@ EstherRaday::Application.routes.draw do
   
   get "/about", to: 'pages#about', as: :about
   get "/contact", to: 'pages#contact', as: :contact
+  get "/sitemap", to: 'pages#sitemap', as: :sitemap
   match "/dashboard", to: 'posts#index', as: :dashboard, via: :get
   
   get '/category/:tag', to: 'pages#home', as: :category
