@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   
   def home
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order("created_at desc").to_a.paginate(page: params[:page], per_page: 8)
+      @posts = Post.tagged_with(params[:tag]).order("created_at").to_a.paginate(page: params[:page], per_page: 8)
     end
   end
   
